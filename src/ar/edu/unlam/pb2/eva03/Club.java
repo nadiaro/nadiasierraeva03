@@ -77,11 +77,11 @@ public class Club {
 	}
 
 
-	public void crearEvento(TipoDeEvento carreraNatacionEnAguasAbiertas,
+	public void crearEvento(TipoDeEvento tipoDeEvento,
 			String nombreEvento) throws NoEstaPreparado {
 		for(Deportista d: socios){
 			if(d instanceof Nadador){
-				Evento nuevo= new Evento(carreraNatacionEnAguasAbiertas, "nadar");
+				Evento nuevo= new Evento(tipoDeEvento, nombreEvento);
 			}else{
 				throw new NoEstaPreparado ("No esta habilitado");
 			}
@@ -89,7 +89,7 @@ public class Club {
 	}
 
 
-	public Boolean inscribirEnEvento(String string, Deportista nuevo) {
+	public Boolean inscribirEnEvento(TipoDeEvento tipoDeEvento, Deportista nuevo) {
 		
 		
 		return null;
