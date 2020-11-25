@@ -7,6 +7,7 @@ import org.junit.Test;
 import ar.edu.unlam.pb2.eva03.enumeradores.TipoDeBicicleta;
 import ar.edu.unlam.pb2.eva03.enumeradores.TipoDeEvento;
 
+
 public class PruebaEva03 {
 	
 	@Test
@@ -61,15 +62,18 @@ public class PruebaEva03 {
 		actual.agregarDeportista(new Nadador(1009, "Victor", "Mariposa"));
 		actual.agregarDeportista(new Triatleta(1004, "Cecilia", "Ironman", TipoDeBicicleta.TRIA));
 			
-		assertEquals((Integer) 10, actual.getCantidadSocios());		
+		assertEquals((Integer) 10, actual.getSocios());		
 	}
 	
 	@Test (expected = NoEstaPreparado.class)
 	public void  queUnCorredorNoSePuedaInscribirEnUnaCarreraDeNatacion () throws NoEstaPreparado{	
 		// En las carreras de natación sólo pueden inscribirse los que sean INadador
 		Deportista celeste = new Corredor(1000, "Celeste", 10000);
+		
 		Club actual = new Club("Sitas");
+		
 		actual.agregarDeportista(celeste);
+		
 		actual.crearEvento(TipoDeEvento.CARRERA_NATACION_EN_AGUAS_ABIERTAS, "Maraton de aguas abiertas");
 		
 		assertNotEquals((Integer)1, actual.inscribirEnEvento("Maraton de aguas abiertas", celeste));		
